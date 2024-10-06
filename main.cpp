@@ -2,7 +2,6 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include "Datos.h"
 #include "Lista.h"
 using namespace std;
 
@@ -18,7 +17,7 @@ Elizabeth Jauregui Zarate (A01253381)
 Mariana Carrillo Holguin (A01253358)
 Zuleyca Guadalupe Balles Soto (A01741687)
 
-Fecha: 08/09/2024
+Fecha: 06/10/2024
 */
 
 int main(){
@@ -35,8 +34,24 @@ int main(){
         return 1;
     }
 
-    vector<Datos> buques;
-    Datos buque;
+    Lista listaMediterraneo;
+    Lista listaRojo;
+
+    string linea;
+    while (getline(inFile, linea)) {
+        Datos buque;
+        istringstream iss(linea);
+        iss >> buque.fecha >> buque.hora >> buque.entrada >> buque.ubi;
+
+        if (buque.entrada == "M") {
+            listaMediterraneo.insertarEnOrden(buque);
+        } else if (buque.entrada == "R") {
+            listaRojo.insertarEnOrden(buque);
+        }
+    }
+
+    inFile.close();
+}
 
     // Leer los datos del archivo y almacenar los objetos buque en el vector buques
     // Complejidad: O(n), donde n es el número de registros en el archivo
@@ -67,5 +82,4 @@ int main(){
 
     inFile.close();
     return 0;
-
-}
+}   
