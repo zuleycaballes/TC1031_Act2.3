@@ -16,6 +16,9 @@ Autores:
 Fecha: 06/10/2024
 */
 
+// Para compilar y ejecutar el programa, se debe utilizar el siguiente comando:
+// g++ Lista.h lista.cpp main.cpp -o main && ./main
+
 int main(){
     // El usuario ingresará el nombre del archivo de entrada (Ej. bitácora.txt).
     string nomArchivo;
@@ -58,3 +61,5 @@ int main(){
 
     return 0; // Finalizar el programa.
 }
+
+    

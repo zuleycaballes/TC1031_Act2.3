@@ -40,6 +40,7 @@ NodoLista* Lista::obtenerPrimerNodo() {
 
 // Función que compara dos objetos de la estructura 'Datos'.
 // Compara primero por el campo 'ubi', y si son iguales, compara por fecha (día, mes, año).
+// COMPLEJIDAD O(1)
 bool Lista::compararDatos(const Datos& a, const Datos& b) {
     // Comparación inicial por UBI. Si no son iguales, retorna el resultado de la comparación.
     if (a.ubi != b.ubi) return a.ubi < b.ubi;
@@ -63,6 +64,7 @@ bool Lista::compararDatos(const Datos& a, const Datos& b) {
 
 
 // Función para insertar un nuevo nodo en la lista, manteniendo el orden por UBI y fecha.
+// COMPLEJIDAD O(n)
 void Lista::insertarEnOrden(Datos buque) {
     // Crear un nuevo nodo con los datos del buque.
     NodoLista* nuevoNodo = new NodoLista(buque);
@@ -88,6 +90,7 @@ void Lista::insertarEnOrden(Datos buque) {
 }
 
 // Función para contar y mostrar el número de buques que han pasado por los mares Mediterráneo y Rojo, organizados por mes y filtrados por UBI (los primeros 3 caracteres).
+// COMPLEJIDAD O(n+m)
 void Lista::ordenarMeses(NodoLista* serieM, NodoLista* serieR, const string& serie) {
     // Si ambas listas están vacías, no hacemos nada.
     if (serieM == nullptr && serieR == nullptr) return;
